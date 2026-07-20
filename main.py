@@ -48,9 +48,35 @@ while continue_or_not == True:
             print(entry)
         
     elif operation == "delete history":
-        for entry in history:
-            history.clear()
+        if not history:
+            print("The history is empty. ")
+            
+        else:
+            for entry in history:
+                print(entry)
         
+            while True:
+                index = input("Which entry would you like to delete(EX: 1 or all).")
+        
+                if index == "all":
+                    history.clear()
+                    break
+            
+                else:
+                    try:
+                        index = int(index)
+                        index -= 1
+                        if 0 <= index < len(history):
+                            deleted = history.pop(index)
+                            print(f"{deleted} was deleted. ")
+                            break
+                        else:
+                            print("The entry you gave is out of range. Try again. ")
+                            continue
+                    
+                    except ValueError:
+                        print("Please enter a valid number or 'all'. Try again. ")
+                        continue
     else:
         print("Invalid operation. Please try again.")
         continue
