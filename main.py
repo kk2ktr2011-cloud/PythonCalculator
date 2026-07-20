@@ -1,16 +1,21 @@
-from mathfunctions import *
+from functions import *
 
 print("This is a calculator made in Python.")
 
-num1 = int(input("Type in a number: "))
-num2 = int(input("Type in another number:"))
+num1, num2 = check_num()
 
 operation_true = False
 counter = 0
 
 while operation_true == False:
-    operation = input("What operation are you going to do? (Addition, Subtraction, Multiplication, Division, Modulus): ")
-    operation.lower()
+    
+    if counter == 0:
+        operation = input("What operation are you going to do? (Addition, Subtraction, Multiplication, Division, Modulus): ")
+    
+    elif counter > 0:
+        operation = input("You typed in an invalid operation. Try again: ")
+    
+    operation = operation.lower()
 
     if operation == "addition" or operation == "add":
         addition(num1, num2)
@@ -31,5 +36,8 @@ while operation_true == False:
     elif operation == "modulus" or operation == "remainder":
         modulus(num1, num2)
         break
+    
+    else:
+        counter += 1
 
 print("This is the end of the calculator.")
