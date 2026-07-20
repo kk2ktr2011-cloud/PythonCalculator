@@ -63,5 +63,4 @@ while continue_or_not == True:
     elif y_n == "n":
         continue_or_not = False
 
-
 print("This is the end of the calculator.")
