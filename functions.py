@@ -26,6 +26,7 @@ def check_num():
             num2 = int(input("Type in another integer: "))
             break
         except ValueError:
-            print("Your first number was invalid. Try again: ") 
+            print("Your second number was invalid. Try again: ") 
             
     return num1, num2
+

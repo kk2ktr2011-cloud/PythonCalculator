@@ -1,4 +1,4 @@
-# PythonCalculator
+# Python Calculator
 A Command Line Based Calculator
 
 ## How To Use

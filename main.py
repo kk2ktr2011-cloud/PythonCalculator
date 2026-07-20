@@ -4,10 +4,9 @@ print("This is a calculator made in Python.")
 
 num1, num2 = check_num()
 
-operation_true = False
 counter = 0
 
-while operation_true == False:
+while True:
     
     if counter == 0:
         operation = input("What operation are you going to do? (Addition, Subtraction, Multiplication, Division, Modulus): ")
