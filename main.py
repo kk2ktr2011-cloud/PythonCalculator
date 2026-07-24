@@ -64,7 +64,7 @@ while continue_or_not == True:
                             entry -= 1
                             if 0 <= entry < len(history):
                                 deleted = history.pop(entry)
-                                print(f"{deleted} was deleted. ")
+                                print(f"{entry+1}. {deleted} was deleted. ")
                             else:
                                 print(f"{entry+1} is out of range.")
                                 continue
