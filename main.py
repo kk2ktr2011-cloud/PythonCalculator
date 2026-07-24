@@ -54,9 +54,9 @@ while continue_or_not == True:
         else:
             for entry in history:
                 print(entry)
-        
+            success = False
             while True:
-                index = input("Which entry would you like to delete(EX: 1 or all).")
+                index = input("Which entry would you like to delete(EX: split them through commas or write all): ")
         
                 if index == "all":
                     history.clear()
@@ -64,19 +64,24 @@ while continue_or_not == True:
             
                 else:
                     try:
-                        index = int(index)
-                        index -= 1
-                        if 0 <= index < len(history):
-                            deleted = history.pop(index)
-                            print(f"{deleted} was deleted. ")
-                            break
-                        else:
-                            print("The entry you gave is out of range. Try again. ")
-                            continue
-                    
+                        clean_text = index.split(",")
+                        index_array = [int(x) for x in clean_text]
+                        index_array.sort(reverse=True)
+                        for entry in index_array:
+                            entry -= 1
+                            if 0 <= entry < len(history):
+                                deleted = history.pop(entry)
+                                print(f"{deleted} was deleted. ")
+                            else:
+                                print(f"{entry+1} is out of range.")
+                                continue
+                        success = True
                     except ValueError:
                         print("Please enter a valid number or 'all'. Try again. ")
-                        continue
+                        success = False
+                
+                if success == True:
+                    break
     else:
         print("Invalid operation. Please try again.")
         continue
